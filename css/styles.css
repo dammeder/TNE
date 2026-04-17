@@ -133,12 +133,6 @@ textarea {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(237, 177, 255, 0.08);
   border-radius: var(--radius-2xl);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.glass:hover {
-  border-color: rgba(237, 177, 255, 0.2);
-  box-shadow: 0 8px 48px rgba(157, 80, 187, 0.1);
 }
 
 /* ---------- Typography ---------- */
@@ -233,12 +227,18 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .nav__logo img {
-  height: 100px;
+  height: 110px;
   width: auto;
   object-fit: contain;
+}
+
+.nav__cta {
+  padding: 0.75rem 1.75rem;
+  font-size: 0.85rem;
 }
 
 .nav__links {
@@ -534,6 +534,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 .brokers {
   padding-top: var(--section-gap);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .brokers__header {
@@ -556,11 +558,6 @@ h1, h2, h3, h4, h5, h6 {
 .brokers__card {
   padding: 3rem;
   border-radius: var(--radius-2xl);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.brokers__card:hover {
-  border-color: rgba(237, 177, 255, 0.35);
 }
 
 .brokers__icon {
@@ -602,6 +599,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 .stats {
   padding-top: var(--section-gap);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .stats__grid {
@@ -639,6 +638,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 .fleet {
   padding-top: var(--section-gap);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .fleet__panel {
@@ -738,6 +739,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 .maintenance {
   padding-top: var(--section-gap);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .maintenance__section {
@@ -967,10 +970,19 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-dim);
 }
 
-.apply__field input:focus,
-.apply__field select:focus {
+.apply__field input:hover,
+.apply__field select:hover {
+  border-color: rgba(157, 80, 187, 0.25);
+}
+
+.apply__field input:focus {
   border-color: rgba(157, 80, 187, 0.5);
   box-shadow: 0 0 0 3px rgba(157, 80, 187, 0.15);
+}
+
+.apply__field select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .apply__submit {

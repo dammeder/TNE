@@ -12,6 +12,7 @@
   const mobileMenu = document.querySelector('.nav__mobile');
   const mobileLinks = document.querySelectorAll('.nav__mobile a');
   const driverForm = document.getElementById('driver-form');
+  const selectElements = document.querySelectorAll('.apply__field select');
 
   /* ---------- Sticky Nav on Scroll ---------- */
   function handleScroll() {
@@ -23,6 +24,13 @@
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+
+  /* ---------- Auto-blur Select Dropdowns ---------- */
+  selectElements.forEach(function (select) {
+    select.addEventListener('change', function () {
+      this.blur();
+    });
+  });
 
   /* ---------- Mobile Nav Toggle ---------- */
   if (hamburger && mobileMenu) {
