@@ -613,7 +613,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stats__item h4 {
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: 5rem;
   font-weight: 900;
   line-height: 1;
   margin-bottom: 0.75rem;
@@ -1025,9 +1025,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer__brand img {
-  height: 140px;
+  height: 155px;
   width: auto;
   object-fit: contain;
+  margin-left: 1.5rem;
 }
 
 .footer__col h5 {
@@ -1103,6 +1104,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-dim);
   line-height: 1.6;
   margin-top: 0.5rem;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.footer__address-detail:hover {
+  color: var(--accent);
 }
 
 .footer__bottom {
