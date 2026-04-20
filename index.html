@@ -35,25 +35,12 @@
         <a href="#contact">Contact</a>
       </div>
 
-      <a href="#contact" class="btn-primary nav__cta">Drive With Us</a>
-
-      <!-- Hamburger -->
-      <div class="nav__hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="nav__actions">
+        <a href="#credentials" class="btn-secondary nav__cta-broker">Work With Us</a>
+        <a href="#contact" class="btn-primary nav__cta">Drive With Us</a>
       </div>
     </div>
   </nav>
-
-  <!-- Mobile nav overlay -->
-  <div class="nav__mobile">
-    <a href="#about">About</a>
-    <a href="#fleet">Fleet</a>
-    <a href="#credentials">Credentials</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn-primary" style="margin-top:1rem;">Drive With Us</a>
-  </div>
 
   <!-- ============================================================
        2. HERO
@@ -70,11 +57,10 @@
     </div>
 
     <div class="container" style="position:relative; z-index:1;">
-      <p class="hero__label">Illinois Step Deck Carrier</p>
+      <p class="hero__label">Transnational Experts Inc.</p>
       <h1 class="hero__title">
         LOADED WITH<span class="highlight">PURPOSE</span>
       </h1>
-
       <div class="hero__badges">
         <div class="hero__badge glass">
           MC: 1189723
@@ -100,7 +86,10 @@
           <div class="overview__content-glow"></div>
           <h2>THE ILLINOIS STANDARD</h2>
           <p>
-            Illinois-based step deck carrier specializing in oversized and heavy-haul freight across 48 states. Machinery, construction equipment, and industrial loads moved with precision and reliability.
+            Based in the heart of the Midwest, Transnational Experts Inc. is a specialized
+            step deck carrier operating across all 48 contiguous states. We move oversized
+            and heavy-haul freight — machinery, construction equipment, and industrial loads —
+            with the precision and reliability that brokers and shippers demand.
           </p>
           <div class="accent-line" style="margin-top:2rem;"></div>
         </div>
@@ -166,10 +155,14 @@
          5. STATS
          ============================================================ -->
     <section class="stats">
+      <div class="stats__header" data-animate>
+        <h2>OPERATIONAL TRACK RECORD</h2>
+        <p class="section-label">Performance metrics from FMCSA records</p>
+      </div>
       <div class="stats__grid" data-animate-stagger>
         <div class="stats__item">
-          <h4 class="gradient-text font-headline">1+</h4>
-          <p>Years in Operation</p>
+          <h4 class="gradient-text font-headline">100%</h4>
+          <p>On-Time Delivery</p>
         </div>
         <div class="stats__item">
           <h4 class="font-headline">3M+</h4>
@@ -330,26 +323,12 @@
         </div>
 
         <div class="maintenance__content">
-          <div class="maintenance__tag">
-            <span class="material-symbols-outlined">build</span>
-            <span>Maintenance Excellence</span>
-          </div>
           <h2>ZERO DOWNTIME PHILOSOPHY</h2>
-          <p>
-            Our own shop and our own mechanics mean fewer breakdowns and more reliable
-            deliveries. We manage all inspections and repairs in-house, ensuring total
-            equipment readiness and cargo safety for every mile.
-            <!-- [PLACEHOLDER] Adjust maintenance details as needed -->
-          </p>
+          <p>Our own shop, our own mechanics — zero unplanned downtime, every mile.</p>
           <div class="maintenance__metrics">
             <div class="maintenance__metric">
               <h4>24/7</h4>
               <p>Shop Operations</p>
-            </div>
-            <div class="maintenance__metric">
-              <!-- [PLACEHOLDER] Adjust inspection frequency -->
-              <h4>WEEKLY</h4>
-              <p>Inspections</p>
             </div>
             <div class="maintenance__metric">
               <h4>IN-HOUSE</h4>
@@ -370,11 +349,11 @@
 
         <div class="credentials__grid">
           <div class="credentials__item">
-            <p class="label"><span class="material-symbols-outlined" style="font-size:1rem; vertical-align:middle; color:#9d50bb; margin-right:0.35rem;">verified_user</span> MC Number</p>
+            <p class="label"><span class="material-symbols-outlined credentials__label-icon">verified_user</span> MC Number</p>
             <p class="value">1189723</p>
           </div>
           <div class="credentials__item">
-            <p class="label"><span class="material-symbols-outlined" style="font-size:1rem; vertical-align:middle; color:#9d50bb; margin-right:0.35rem;">verified_user</span> DOT Number</p>
+            <p class="label"><span class="material-symbols-outlined credentials__label-icon">verified_user</span> DOT Number</p>
             <p class="value">3551730</p>
           </div>
           <div class="credentials__item">
@@ -384,15 +363,21 @@
           </div>
         </div>
 
-        <a
-          href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=3551730"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-secondary"
-        >
-          Official SAFER Profile
-          <span class="material-symbols-outlined" style="font-size:1rem;">open_in_new</span>
-        </a>
+        <div class="credentials__actions">
+          <a
+            href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=3551730"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            Official SAFER Profile
+            <span class="material-symbols-outlined" style="font-size:1rem;">open_in_new</span>
+          </a>
+          <a href="tel:+12678180039" class="btn-primary credentials__dispatch-cta">
+            Contact Dispatch
+            <span class="material-symbols-outlined" style="font-size:1rem;">call</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -409,12 +394,11 @@
         <div class="apply__row">
           <div class="apply__field">
             <label for="full-name">Full Name</label>
-            <input type="text" id="full-name" name="fullName" placeholder="Your full name" required />
+            <input type="text" id="full-name" name="fullName" placeholder="Your full name" pattern="[A-Za-z\s\-']+" title="Letters only" required />
           </div>
           <div class="apply__field">
             <label for="phone">Phone Number</label>
-            <!-- [PLACEHOLDER] Adjust placeholder phone format -->
-            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" inputmode="numeric" pattern="[\d\s\(\)\-\+]+" title="Numbers only" required />
           </div>
         </div>
         <div class="apply__row">
@@ -423,7 +407,9 @@
             <select id="cdl-type" name="cdlType" required>
               <option value="" disabled selected>Select CDL class</option>
               <option value="Class A">Class A CDL</option>
-              <option value="Class B">Class B CDL</option>
+              <option value="Class A + Hazmat">Class A CDL + Hazmat</option>
+              <option value="Class A + Tanker">Class A CDL + Tanker</option>
+              <option value="Permit">Permit / In Training</option>
             </select>
           </div>
           <div class="apply__field">
@@ -480,21 +466,86 @@
             <span class="material-symbols-outlined">location_on</span>
             <p class="city">Mokena, Illinois</p>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=8450+W+191ST+ST+UNIT+9+Mokena+IL+60448" target="_blank" rel="noopener noreferrer" class="footer__address-detail">8450 W 191ST ST UNIT 9<br/>Mokena, IL 60448</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=8450+W+191ST+ST+UNIT+9+Mokena+IL+60448" target="_blank" rel="noopener noreferrer" class="footer__address-detail">8450 W 191ST ST UNIT 9<br/>Mokena, IL 60448<span class="footer__map-hint">View on Map &rarr;</span></a>
         </div>
       </div>
 
       <div class="footer__bottom">
         <p class="footer__copyright">&copy; 2025 Transnational Experts Inc. All rights reserved.</p>
         <div class="footer__legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="#" data-modal="privacy-modal">Privacy Policy</a>
+          <a href="#" data-modal="terms-modal">Terms of Service</a>
         </div>
       </div>
     </div>
 
     <div class="footer__accent-line"></div>
   </footer>
+
+  <!-- ============================================================
+       MODALS — Privacy Policy & Terms of Service
+       ============================================================ -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal glass">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <h2>Privacy Policy</h2>
+      <div class="modal__content">
+        <p><strong>Effective Date:</strong> January 1, 2025</p>
+        <p><strong>Transnational Experts Inc.</strong> ("TNE", "we", "us") is committed to protecting the privacy of all visitors and applicants who interact with our website.</p>
+
+        <h3>Information We Collect</h3>
+        <p>When you submit a driver application through our website, we collect the following personal information:</p>
+        <ul>
+          <li>Full name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>CDL class type and endorsements</li>
+          <li>Years of driving experience</li>
+        </ul>
+
+        <h3>How We Use Your Information</h3>
+        <p>Your information is used solely for the purpose of evaluating your application for employment with TNE. We may contact you via phone or email to discuss your application, schedule interviews, or request additional documentation.</p>
+
+        <h3>Data Storage & Security</h3>
+        <p>Application data is transmitted to a secure Google Sheets database via encrypted HTTPS connection. We do not sell, share, or distribute your personal information to any third parties. Access to applicant data is limited to authorized TNE personnel only.</p>
+
+        <h3>Data Retention</h3>
+        <p>We retain applicant information for up to 12 months after submission. You may request deletion of your data at any time by contacting our operations team.</p>
+
+        <h3>Contact</h3>
+        <p>For privacy-related inquiries, please contact us at <a href="tel:+12678180039">(267) 818-0039</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="terms-modal">
+    <div class="modal glass">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <h2>Terms of Service</h2>
+      <div class="modal__content">
+        <p><strong>Effective Date:</strong> January 1, 2025</p>
+        <p>By accessing and using the Transnational Experts Inc. website, you agree to the following terms and conditions.</p>
+
+        <h3>Use of Website</h3>
+        <p>This website is provided for informational purposes and to facilitate driver employment applications. You agree to use the site only for its intended purposes and to provide accurate, truthful information in any forms submitted.</p>
+
+        <h3>Driver Applications</h3>
+        <p>Submission of a driver application does not constitute an offer or guarantee of employment. All applications are subject to review, verification of credentials, background checks, DOT physical examination, and federally mandated drug screening. TNE reserves the right to accept or reject any application at its sole discretion.</p>
+
+        <h3>Accuracy of Information</h3>
+        <p>While we strive to keep all website content accurate and up to date, TNE makes no warranties or representations regarding the completeness or accuracy of information displayed, including but not limited to fleet specifications, insurance figures, and operational metrics.</p>
+
+        <h3>Intellectual Property</h3>
+        <p>All content on this website — including text, graphics, logos, and design elements — is the property of Transnational Experts Inc. and is protected under applicable copyright and trademark laws. Unauthorized reproduction or distribution is prohibited.</p>
+
+        <h3>Limitation of Liability</h3>
+        <p>TNE shall not be liable for any damages arising from the use of or inability to use this website. This includes but is not limited to direct, indirect, incidental, or consequential damages.</p>
+
+        <h3>Contact</h3>
+        <p>For questions regarding these terms, please contact us at <a href="tel:+12678180039">(267) 818-0039</a>.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>

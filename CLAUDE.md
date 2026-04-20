@@ -43,3 +43,36 @@ Several `[PLACEHOLDER]` tags exist in the code that need real values:
 - Hero/fleet/maintenance images (currently using external URLs)
 - Trailer specs (length, deck height, payload capacity) in the SVG blueprint
 - `GOOGLE_SCRIPT_URL` in `js/main.js` if the Apps Script is redeployed
+
+## Frontend Engineering Principles
+
+Before making any change to this codebase, think like a senior frontend engineer:
+
+### Aesthetics
+- Every visual change must serve a purpose — ask "does this look better AND why?"
+- Follow the design system in `mockups/DESIGN.md` strictly: dark theme, glassmorphism, gradients, no solid borders, no sharp corners
+- Hover/transition states give the UI life — never remove them without a strong reason
+- Typography hierarchy must be preserved: don't use large font sizes for elements that are subordinate (e.g. labels should not compete with headlines)
+- Spacing consistency: use `--section-gap` and existing CSS variables, never hardcode arbitrary values
+- Use `clamp()` for font sizes that must scale — never replace a `clamp()` with a fixed size
+
+### Functionality
+- Removing a feature (scroll indicator, counter animation, hover effect) requires a clear reason — "I don't like it" is not enough
+- Before deleting any JS behavior, confirm it's truly not needed
+- Form UX: focus states must always be visually distinct — never remove focus rings (accessibility requirement)
+- Don't auto-blur focused elements — let users control focus
+
+### Code quality
+- No inline `style=` attributes — use CSS classes
+- No dead CSS (classes defined in styles.css with no matching HTML element)
+- No `user-select: none` on informational/content sections
+- Responsive-first: test every change at 375px, 768px, and 1200px mentally before committing
+
+### Content
+- Don't duplicate information across sections (e.g. "48 States" appears in hero badges — don't repeat in stats)
+- Marketing copy should be a pitch, not a spec sheet — keep language compelling
+- Every section should earn its place: if it repeats something said elsewhere, cut or differentiate it
+
+### Known intentional decisions (do not revert)
+- Mobile nav has no hamburger menu — this is intentional, do not add one back
+- Hero label shows "Transnational Experts Inc." — the company name has no other prominent placement on the page, this is intentional
