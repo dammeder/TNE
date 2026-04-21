@@ -31,12 +31,12 @@
       <div class="nav__links">
         <a href="#about">About</a>
         <a href="#fleet">Fleet</a>
-        <a href="#credentials">Credentials</a>
+        <a href="#credentials">Book</a>
         <a href="#contact">Contact</a>
       </div>
 
       <div class="nav__actions">
-        <a href="#dispatch" class="btn-secondary nav__cta-broker">Work With Us</a>
+        <a href="#credentials" class="btn-secondary nav__cta-broker">Work With Us</a>
         <a href="#contact" class="btn-primary nav__cta">Drive With Us</a>
       </div>
     </div>
@@ -160,10 +160,6 @@
       </div>
       <div class="stats__grid" data-animate-stagger>
         <div class="stats__item">
-          <h4 class="gradient-text font-headline">100%</h4>
-          <p>On-Time Delivery</p>
-        </div>
-        <div class="stats__item">
           <h4 class="font-headline">3M+</h4>
           <p>Miles Hauled</p>
         </div>
@@ -256,8 +252,10 @@
     <section class="credentials" id="credentials">
       <div class="credentials__panel" data-animate>
         <div class="credentials__glow"></div>
-        <h2>OPERATIONAL CREDENTIALS</h2>
+        <h2 class="credentials__title">Book With a Verified Carrier</h2>
+        <p class="credentials__subhead">Email dispatch with your load details &mdash; we&rsquo;ll get back to you.</p>
 
+        <p class="credentials__kicker">Our Credentials</p>
         <div class="credentials__grid">
           <div class="credentials__item">
             <p class="label"><span class="material-symbols-outlined credentials__label-icon">verified_user</span> MC Number</p>
@@ -276,76 +274,27 @@
 
         <div class="credentials__actions">
           <a
+            href="mailto:[PLACEHOLDER]?subject=Load%20Inquiry%20%E2%80%94%20%5BBrokerage%20Name%5D&body=Brokerage%3A%20%0AMC%23%3A%20%0AOrigin%20(city%2C%20state)%3A%20%0ADestination%20(city%2C%20state)%3A%20%0ACommodity%3A%20%0AWeight%3A%20%0APickup%20date%3A%20%0ASpecial%20requirements%3A%20%0A"
+            class="btn-primary credentials__cta-email"
+          >
+            <span class="material-symbols-outlined credentials__cta-icon">mail</span>
+            Email Dispatch
+          </a>
+          <a
             href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=3551730"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-secondary"
+            class="credentials__safer-link"
           >
-            Official SAFER Profile
-            <span class="material-symbols-outlined" style="font-size:1rem;">open_in_new</span>
-          </a>
-          <a href="tel:+12678180039" class="btn-primary credentials__dispatch-cta">
-            Contact Dispatch
-            <span class="material-symbols-outlined" style="font-size:1rem;">call</span>
+            Verify on SAFER
+            <span class="material-symbols-outlined credentials__safer-icon">arrow_outward</span>
           </a>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         9. DISPATCH CONTACT (brokers)
-         ============================================================ -->
-    <section class="dispatch" id="dispatch">
-      <div class="dispatch__panel glass" data-animate>
-        <div class="dispatch__glow"></div>
-
-        <div class="dispatch__header">
-          <h2>WORK WITH DISPATCH</h2>
-          <p class="dispatch__subhead">Direct line to operations. No forms, no waiting.</p>
-        </div>
-
-        <div class="dispatch__actions">
-          <a
-            href="mailto:[PLACEHOLDER]?subject=Load%20Inquiry%20%E2%80%94%20%5BBrokerage%20Name%5D&body=Brokerage%3A%20%0AMC%23%3A%20%0AOrigin%20(city%2C%20state)%3A%20%0ADestination%20(city%2C%20state)%3A%20%0ACommodity%3A%20%0AWeight%3A%20%0APickup%20date%3A%20%0ASpecial%20requirements%3A%20%0A"
-            class="btn-primary dispatch__cta dispatch__cta--email"
-          >
-            <span class="material-symbols-outlined">mail</span>
-            Email Dispatch
-          </a>
-          <a href="tel:+12678180039" class="btn-secondary dispatch__cta dispatch__cta--call">
-            <span class="material-symbols-outlined">call</span>
-            Call (267) 818-0039
-          </a>
-        </div>
-
-        <div class="dispatch__meta">
-          <span class="dispatch__meta-item">
-            <span class="material-symbols-outlined">schedule</span>
-            24/7 Dispatch
-          </span>
-          <span class="dispatch__meta-sep" aria-hidden="true">&middot;</span>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=8450+W+191ST+ST+UNIT+9+Mokena+IL+60448"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="dispatch__meta-item dispatch__meta-link"
-          >
-            <span class="material-symbols-outlined">location_on</span>
-            Mokena, IL HQ
-          </a>
-        </div>
-
-        <div class="dispatch__badges">
-          <span class="dispatch__badge">MC 1189723</span>
-          <span class="dispatch__badge">DOT 3551730</span>
-          <span class="dispatch__badge">Step Deck</span>
-          <span class="dispatch__badge">53 ft / 48K lbs</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         10. DRIVER APPLICATION
+         9. DRIVER APPLICATION
          ============================================================ -->
     <section class="apply" id="contact">
       <div class="apply__header" data-animate>
@@ -387,7 +336,7 @@
   </main>
 
   <!-- ============================================================
-       11. FOOTER
+       10. FOOTER
        ============================================================ -->
   <footer class="footer">
     <div class="container">
@@ -403,7 +352,7 @@
           <ul>
             <li><a href="#about">About TNE</a></li>
             <li><a href="#fleet">Fleet Specs</a></li>
-            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#credentials">Book a Load</a></li>
             <li><a href="#contact">Driver Careers</a></li>
           </ul>
         </div>
