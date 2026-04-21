@@ -1,0 +1,10 @@
+# Internal documentation — not for public
+AUDIT.md
+CLAUDE.md
+GOOGLE_SHEETS_SETUP.md
+LICENSE
+mockups/
+
+# OS
+.DS_Store
+Thumbs.db
