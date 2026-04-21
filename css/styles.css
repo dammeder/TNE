@@ -34,7 +34,7 @@
   --accent-pink: #ffb2ba;
 
   /* Spacing */
-  --section-gap: 140px;
+  --section-gap: 180px;
   --container-width: 1200px;
 
   /* Radius */
@@ -60,6 +60,18 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.section-anchor {
+  display: block;
+  position: relative;
+  top: -80px;
+  height: 0;
+  visibility: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 120px;
 }
 
 body {
@@ -399,10 +411,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-full);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-primary);
+  background: rgba(18, 20, 26, 0.75);
+  border: 1px solid rgba(237, 177, 255, 0.28);
+  box-shadow: 0 8px 32px rgba(157, 80, 187, 0.18);
 }
 
 
@@ -488,12 +503,12 @@ h1, h2, h3, h4, h5, h6 {
    4. WHY BROKERS
    ============================================================ */
 .brokers {
-  padding-top: var(--section-gap);
+  padding-top: calc(var(--section-gap) + 120px);
 }
 
 .brokers__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .brokers__header h2 {
@@ -1464,24 +1479,105 @@ h1, h2, h3, h4, h5, h6 {
     height: 360px;
   }
 
-  .brokers__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .stats__grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.25rem;
   }
 
+  .fleet__callouts {
+    display: none;
+  }
+
+  .fleet__panel {
+    max-height: none;
+  }
+
+  .fleet__facts-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1.5rem;
+    background: var(--surface-low);
+    border-top: 1px solid rgba(237, 177, 255, 0.08);
+  }
+
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav__logo img {
+    height: 75px;
+  }
+
+  .nav__cta-broker {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: clamp(3rem, 10vw, 5.5rem);
+  }
+
+  .brokers__grid {
+    grid-template-columns: 1fr;
+  }
+
   .credentials__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .credentials__cta-email {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .fleet__callouts {
+    display: none;
+  }
+
+  .fleet__facts-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1.5rem;
+    background: var(--surface-low);
+    border-top: 1px solid rgba(237, 177, 255, 0.08);
+  }
+
+  .maintenance__panel {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.25rem;
+  }
+
+  .maintenance__media {
+    width: 100%;
+    aspect-ratio: auto;
+    height: 260px;
+    max-height: none;
+  }
+
+  .maintenance__body {
+    text-align: center;
+    max-width: none;
+  }
+
+  .maintenance__metric {
+    align-items: center;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(237, 177, 255, 0.1);
+  }
+
+  .maintenance__metric-bar {
+    display: none;
   }
 
   .footer__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -1593,8 +1689,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .maintenance__media {
-    aspect-ratio: 16 / 9;
-    max-height: 220px;
+    width: 100%;
+    aspect-ratio: auto;
+    height: 220px;
+    max-height: none;
   }
 
   .maintenance__body {

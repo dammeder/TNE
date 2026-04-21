@@ -118,6 +118,22 @@
     }, { rootMargin: '-40% 0px -55% 0px' });
 
     sections.forEach(function (s) { spyObserver.observe(s.el); });
+
+    // Clear active state when scrolled above the first tracked section (hero area)
+    var spyTicking = false;
+    function clearActiveIfAboveSections() {
+      var firstTop = sections[0].el.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY < firstTop - 160) {
+        navLinks.forEach(function (l) { l.classList.remove('active'); });
+      }
+      spyTicking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!spyTicking) {
+        window.requestAnimationFrame(clearActiveIfAboveSections);
+        spyTicking = true;
+      }
+    }, { passive: true });
   }
 
   /* ---------- Input Validation ---------- */
