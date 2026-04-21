@@ -11,7 +11,7 @@ TNE (Transnational Experts Inc.) is a static marketing website for an Illinois-b
 Single-page site with three files:
 - `index.html` — all markup; sections are numbered with comments (1. Nav → 10. Footer)
 - `css/styles.css` — all styles
-- `js/main.js` — all JavaScript, vanilla ES5, wrapped in an IIFE
+- `js/main.js` — all JavaScript, vanilla (modern ES, `const`/`let`/arrow-compatible), wrapped in an IIFE
 
 **Driver Application Form** submits via `fetch` to a Google Apps Script Web App URL (`GOOGLE_SCRIPT_URL` in `js/main.js`) which appends rows to a Google Sheet. Setup instructions are in `GOOGLE_SHEETS_SETUP.md`.
 

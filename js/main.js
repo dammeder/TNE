@@ -55,7 +55,7 @@
       revealObserver.observe(el);
     });
 
-    // Stats counter animation — animates the inspections count (last stat item)
+    // Stats counter animation — animates every numeric stat
     var statsSection = document.querySelector('.stats');
     if (statsSection) {
       var statsCounted = false;
@@ -64,8 +64,7 @@
           if (entry.isIntersecting && !statsCounted) {
             statsCounted = true;
             var items = statsSection.querySelectorAll('.stats__item h4');
-            items.forEach(function (item, index) {
-              if (index !== 3) return;
+            items.forEach(function (item) {
               var text = item.textContent.trim();
               var match = text.match(/^([\d.]+)(.*)$/);
               if (match) {
@@ -145,40 +144,72 @@
   }
 
   /* ---------- Modal Logic ---------- */
+  var FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  var modalLastTrigger = null;
+
+  function openModal(modal, trigger) {
+    modalLastTrigger = trigger || document.activeElement;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button on open for keyboard users
+    var closeBtn = modal.querySelector('.modal__close');
+    if (closeBtn) {
+      setTimeout(function () { closeBtn.focus(); }, 0);
+    }
+  }
+
+  function closeModal(overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (modalLastTrigger && typeof modalLastTrigger.focus === 'function') {
+      modalLastTrigger.focus();
+    }
+    modalLastTrigger = null;
+  }
+
   document.querySelectorAll('[data-modal]').forEach(function (trigger) {
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
       var modal = document.getElementById(this.getAttribute('data-modal'));
-      if (modal) {
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
+      if (modal) openModal(modal, this);
     });
   });
 
   document.querySelectorAll('.modal__close').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var overlay = this.closest('.modal-overlay');
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
+      if (overlay) closeModal(overlay);
     });
   });
 
   document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
     overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      if (e.target === overlay) closeModal(overlay);
     });
   });
 
   document.addEventListener('keydown', function (e) {
+    var openOverlay = document.querySelector('.modal-overlay.open');
+    if (!openOverlay) return;
+
     if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(function (overlay) {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      closeModal(openOverlay);
+      return;
+    }
+
+    // Focus trap: keep Tab within the modal
+    if (e.key === 'Tab') {
+      var focusable = openOverlay.querySelectorAll(FOCUSABLE_SELECTOR);
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 
@@ -190,6 +221,13 @@
     driverForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
+      // Honeypot check — if filled, silently "succeed" without submitting
+      var honeypot = driverForm.querySelector('input[name="website"]');
+      if (honeypot && honeypot.value) {
+        driverForm.reset();
+        return;
+      }
+
       var submitBtn = driverForm.querySelector('.apply__submit');
       var originalText = submitBtn.textContent;
       submitBtn.textContent = 'SUBMITTING...';
@@ -198,7 +236,7 @@
       var formData = new FormData(driverForm);
       var data = {};
       formData.forEach(function (value, key) {
-        data[key] = value;
+        if (key !== 'website') data[key] = value;
       });
 
       fetch(GOOGLE_SCRIPT_URL, {
