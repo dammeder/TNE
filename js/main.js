@@ -230,8 +230,7 @@
   });
 
   /* ---------- Driver Application Form ---------- */
-  // [PLACEHOLDER] — Replace this URL with your Google Apps Script Web App URL
-  var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxq1IGYrtVq36nz79x6UpUWKneHF3Lhs1KFmJyxChYtT7fkQ4BFO5o7HRXlZLn0W4KB/exec';
+  var GOOGLE_SCRIPT_URL ='https://script.google.com/macros/s/AKfycbxq1IGYrtVq36nz79x6UpUWKneHF3Lhs1KFmJyxChYtT7fkQ4BFO5o7HRXlZLn0W4KB/exec';
 
   if (driverForm) {
     driverForm.addEventListener('submit', function (e) {
