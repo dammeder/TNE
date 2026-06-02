@@ -931,8 +931,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .credentials__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 4.5rem;
   margin-bottom: 3rem;
 }
 
